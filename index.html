@@ -7,9 +7,9 @@
   <title>VELOXX Healthcare </title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Bebas+Neue&display=swap"
-    rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
  </head>
 
 <body>
@@ -56,12 +56,6 @@
           </div>
         </div>
         <p class="hero2__eyebrow reveal">Uttarakhand Healthcare &amp; Innovation Summit 2026</p>
-        <div class="hero2__headline reveal">
-          <h1 class="heroH1">
-            <span class="heroH1__line1">Healthcare, Built</span>
-            <span class="heroH1__line2">for the Himalayas</span>
-          </h1>
-        </div>
 
         <div class="hero2__meta reveal">
           <span class="hero2__metaItem">2nd Edition</span>
@@ -72,49 +66,15 @@
         <p class="hero2__tag">Innovations That Care. Commitments That Last. Services That Deliver.</p>
       </div>
 
-      <!-- Stats strip (4 blocks with image/text like reference) -->
-      <div class="hero2__statsTitle reveal">Key Metrics</div>
-      <div class="hero2__stats reveal" id="metrics">
-        <div class="hero2__statsRow" data-metric-track data-marquee-direction="left">
-          <div class="hstat hstat--photo" aria-hidden="true">
-            <img src="allImages/24.png" alt="">
-          </div>
-          <div class="hstat hstat--metric">
-            <div class="hstat__big">01</div>
-            <div class="hstat__label">Day summit</div>
-          </div>
-          <div class="hstat hstat--photo" aria-hidden="true">
-            <img src="allImages/33.png" alt="">
-          </div>
-          <div class="hstat hstat--metric">
-            <div class="hstat__big">8+</div>
-            <div class="hstat__label">Curated sessions</div>
-          </div>
-          <div class="hstat hstat--photo" aria-hidden="true">
-            <img src="allImages/38.png" alt="">
-          </div>
-        </div>
-        <div class="hero2__statsRow" data-metric-track data-marquee-direction="right">
-          <div class="hstat hstat--metric">
-            <div class="hstat__big">40+</div>
-            <div class="hstat__label">Speakers and panelists</div>
-          </div>
-          <div class="hstat hstat--photo" aria-hidden="true">
-            <img src="allImages/43.png" alt="">
-          </div>
-          <div class="hstat hstat--metric">
-            <div class="hstat__big">150+</div>
-            <div class="hstat__label">Delegates and participants</div>
-          </div>
-          <div class="hstat hstat--photo" aria-hidden="true">
-            <img src="allImages/45.png" alt="">
-          </div>
-          <div class="hstat hstat--metric">
-            <div class="hstat__big">30+</div>
-            <div class="hstat__label">Innovation and healthcare hero awards</div>
-          </div>
-        </div>
+      <div class="hero2__headline reveal">
+        <h1 class="heroH1">
+          <span class="heroH1__line1">Healthcare,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+          <span class="heroH1__line2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for the Himalayas</span>
+        </h1>
       </div>
+
+      </div>
+
     </section>
 
     <!-- ABOUT -->
@@ -173,15 +133,11 @@
         <div class="marquee-heading" aria-label="Sponsors and partners marquee">
           <div class="marquee-heading__inner">
             <div class="marquee-heading__group">
-              <span>SPONSOR</span><span class="dot">✺</span>
               <span>PARTNER</span><span class="dot">✺</span>
-              <span>SPONSOR</span><span class="dot">✺</span>
               <span>PARTNER</span><span class="dot">✺</span>
             </div>
             <div class="marquee-heading__group" aria-hidden="true">
-              <span>SPONSOR</span><span class="dot">✺</span>
               <span>PARTNER</span><span class="dot">✺</span>
-              <span>SPONSOR</span><span class="dot">✺</span>
               <span>PARTNER</span><span class="dot">✺</span>
             </div>
           </div>
@@ -189,7 +145,7 @@
       </div>
 
       <div class="partnerLogosMarquee reveal" data-partner-marquee>
-        <div class="partnerLogoTrack" data-partner-track>
+        <div class="partnerLogoTrack" data-partner-track data-marquee-direction="right">
           <div class="partnerLogoItem"><img src="allImages/PoweredByPartner.png" alt="Powered by partner"></div>
           <div class="partnerLogoItem"><img src="allImages/HostPartner1.png" alt="Host partner 1"></div>
           <div class="partnerLogoItem"><img src="allImages/HostPartner2.png" alt="Host partner 2"></div>
@@ -594,6 +550,7 @@
               </div>
             </article>
           </div>
+          <button class="showMoreBtn" type="button">Show More</button>
         </div>
       </div>
     </section>
@@ -615,26 +572,32 @@
                 <p class="insightTile__text"><span class="insightTile__stat">~63 lakh</span> people access government hospitals annually</p>
               </article>
               <div class="insightTile insightTile--photo" aria-hidden="true">
-                <img src="allImages/24.png" alt="">
+                <img src="https://i.pinimg.com/736x/b7/20/ce/b720ce0de6d1fbef68a50cf1d41f149d.jpg" alt="">
               </div>
-              <div class="insightTile insightTile--accent" aria-hidden="true"></div>
+              <div class="insightTile insightTile--accent" aria-hidden="true">
+                <img src="https://i.pinimg.com/736x/b7/20/ce/b720ce0de6d1fbef68a50cf1d41f149d.jpg" alt="">
+              </div>
               <article class="insightTile">
                 <p class="insightTile__text"><span class="insightTile__stat">93 lakh</span> free diagnostic tests delivered to
                   <span class="insightTile__stat">~29 lakh</span> individuals</p>
               </article>
-              <div class="insightTile insightTile--accent" aria-hidden="true"></div>
+              <div class="insightTile insightTile--accent" aria-hidden="true">
+                <img src="https://i.pinimg.com/736x/b7/20/ce/b720ce0de6d1fbef68a50cf1d41f149d.jpg" alt="">
+              </div>
               <article class="insightTile insightTile--wide">
                 <p class="insightTile__text">Institutional deliveries increased from <span class="insightTile__stat">37%</span> to over
                   <span class="insightTile__stat">93%</span></p>
               </article>
               <div class="insightTile insightTile--photo insightTile--photoWide" aria-hidden="true">
-                <img src="allImages/33.png" alt="">
+                <img src="https://i.pinimg.com/736x/b7/20/ce/b720ce0de6d1fbef68a50cf1d41f149d.jpg" alt="">
               </div>
               <article class="insightTile">
                 <p class="insightTile__text">Atal Ayushman Uttarakhand enabled <span class="insightTile__stat">~27 lakh</span> free
                   treatments, one of the highest in India relative to population</p>
               </article>
-              <div class="insightTile insightTile--accent" aria-hidden="true"></div>
+              <div class="insightTile insightTile--accent" aria-hidden="true">
+                <img src="https://i.pinimg.com/736x/b7/20/ce/b720ce0de6d1fbef68a50cf1d41f149d.jpg" alt="">
+              </div>
               <article class="insightTile">
                 <p class="insightTile__text">India's first state to offer completely free dialysis, benefiting
                   <span class="insightTile__stat">32,000+</span> patients</p>
@@ -652,7 +615,9 @@
           <div class="insightPanel reveal">
             <div class="insightPanel__title">Persistent Challenges</div>
             <div class="insightTiles insightTiles--challenges">
-              <div class="insightTile insightTile--accent" aria-hidden="true"></div>
+              <div class="insightTile insightTile--accent" aria-hidden="true">
+                <img src="https://i.pinimg.com/736x/b7/20/ce/b720ce0de6d1fbef68a50cf1d41f149d.jpg" alt="">
+              </div>
               <article class="insightTile insightTile--wide">
                 <p class="insightTile__text"><span class="insightTile__stat">~33,000</span> bed shortfall across the state; only
                   <span class="insightTile__stat">194</span> diagnostic centres versus an estimated need of
@@ -662,7 +627,9 @@
                 <p class="insightTile__text"><span class="insightTile__stat">86%</span> mountainous terrain impacting access and
                   continuity of care</p>
               </article>
-              <div class="insightTile insightTile--accent" aria-hidden="true"></div>
+              <div class="insightTile insightTile--accent" aria-hidden="true">
+                <img src="https://i.pinimg.com/736x/b7/20/ce/b720ce0de6d1fbef68a50cf1d41f149d.jpg" alt="">
+              </div>
               <article class="insightTile">
                 <p class="insightTile__text">Specialist vacancies exceeding <span class="insightTile__stat">50%</span> in several hill
                   districts</p>
@@ -671,7 +638,7 @@
                 <p class="insightTile__text">Acute mental health workforce shortages</p>
               </article>
               <div class="insightTile insightTile--photo insightTile--photoWide" aria-hidden="true">
-                <img src="allImages/38.png" alt="">
+                <img src="https://i.pinimg.com/736x/b7/20/ce/b720ce0de6d1fbef68a50cf1d41f149d.jpg" alt="">
               </div>
               <article class="insightTile">
                 <p class="insightTile__text">Advanced tertiary care concentrated in limited urban centres</p>
@@ -738,7 +705,7 @@
     <!-- Who will be there -->
     <section id="who" class="panel2 panel2--discussion">
       <div class="wrap">
-        <div class="sectionTitle reveal">
+        <div class="sectionTitle sectionTitle--centered reveal">
           <h2>Who Will Be There</h2>
           <div class="sectionRule" aria-hidden="true"></div>
         </div>
@@ -757,7 +724,7 @@
     <!-- Awards -->
     <section id="awards" class="panel2 panel2--awards">
       <div class="wrap">
-        <div class="sectionTitle reveal">
+        <div class="sectionTitle sectionTitle--centered reveal">
           <h2>UKHIS 2026 Awards</h2>
           <div class="sectionRule" aria-hidden="true"></div>
         </div>
@@ -812,7 +779,7 @@
     <!-- Contact -->
     <section id="contact" class="panel2 panel2--contact">
       <div class="wrap">
-        <div class="sectionTitle reveal">
+        <div class="sectionTitle sectionTitle--centered reveal">
           <h2>Contact Us</h2>
           <div class="sectionRule" aria-hidden="true"></div>
         </div>
@@ -842,7 +809,7 @@
     <!-- Grievance form -->
     <section id="grievance" class="panel2 panel2--teal">
       <div class="wrap">
-        <div class="grievanceHeader reveal">
+        <div class="grievanceHeader sectionTitle--centered reveal">
           <h2>File a grievance</h2>
           <p>Select the level, department, category, and sub-category to route your issue correctly.</p>
         </div>

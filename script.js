@@ -95,18 +95,34 @@ document.addEventListener("DOMContentLoaded", () => {
     window.gsap.registerPlugin(window.ScrollTrigger);
 
     window.gsap.utils.toArray(revealEls).forEach((el) => {
-      window.gsap.set(el, { opacity: 0, y: 18 });
-      window.gsap.to(el, {
-        opacity: 1,
-        y: 0,
-        duration: 0.85,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: el,
-          start: "top 85%"
+      const rect = el.getBoundingClientRect();
+      const inView = rect.top < window.innerHeight && rect.bottom > 0;
+      if (!inView) {
+        window.gsap.set(el, { opacity: 0, y: 18 });
+        window.gsap.to(el, {
+          opacity: 1,
+          y: 0,
+          duration: 0.85,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: el,
+            start: "top 85%"
+          }
+        });
+      } else {
+        window.gsap.set(el, { opacity: 1, y: 0 });
+      }
+    });
+
+    // Make hero reveals visible immediately if in view
+    setTimeout(() => {
+      revealEls.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          window.gsap.set(el, { opacity: 1, y: 0 });
         }
       });
-    });
+    }, 100);
 
     // Section-specific polish
     window.gsap.utils.toArray(".hstat").forEach((el, i) => {
@@ -232,26 +248,27 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Hero metrics marquee (alternate directions)
-  const metricTracks = document.querySelectorAll("[data-metric-track]");
-  if (!reduceMotion && metricTracks.length && window.gsap) {
-    const metricTweens = [];
-    metricTracks.forEach((track) => {
-      const tween = buildMarquee(track, 1.8);
-      if (tween) metricTweens.push(tween);
-    });
-
-    let metricResize;
-    window.addEventListener("resize", () => {
-      clearTimeout(metricResize);
-      metricResize = setTimeout(() => {
-        metricTweens.forEach((t) => t.kill());
-        metricTweens.length = 0;
-        metricTracks.forEach((track) => {
-          const tween = buildMarquee(track, 1.8);
-          if (tween) metricTweens.push(tween);
+  // Show more for Key Dignitaries
+  const speakerGroups = document.querySelectorAll('.speakerGroup');
+  if (speakerGroups.length > 1) {
+    const keyDignitariesGroup = speakerGroups[1];
+    const speakerGrid = keyDignitariesGroup.querySelector('.speakerGrid');
+    if (speakerGrid) {
+      const cards = speakerGrid.querySelectorAll('.speakerCard');
+      const showCount = 8; // Show first 8 cards (2 rows assuming 4 per row)
+      cards.forEach((card, index) => {
+        if (index >= showCount) {
+          card.classList.add('hidden');
+        }
+      });
+      const showMoreBtn = keyDignitariesGroup.querySelector('.showMoreBtn');
+      if (showMoreBtn) {
+        showMoreBtn.addEventListener('click', () => {
+          const hiddenCards = speakerGrid.querySelectorAll('.speakerCard.hidden');
+          hiddenCards.forEach(card => card.classList.remove('hidden'));
+          showMoreBtn.style.display = 'none';
         });
-      }, 160);
-    });
+      }
+    }
   }
 });
