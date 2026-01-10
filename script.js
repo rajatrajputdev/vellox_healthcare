@@ -248,6 +248,29 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Hero metrics marquee (left to right)
+  const metricTracks = document.querySelectorAll("[data-metric-track]");
+  if (!reduceMotion && metricTracks.length && window.gsap) {
+    const metricTweens = [];
+    metricTracks.forEach((track) => {
+      const tween = buildMarquee(track, 1.8);
+      if (tween) metricTweens.push(tween);
+    });
+
+    let metricResize;
+    window.addEventListener("resize", () => {
+      clearTimeout(metricResize);
+      metricResize = setTimeout(() => {
+        metricTweens.forEach((t) => t.kill());
+        metricTweens.length = 0;
+        metricTracks.forEach((track) => {
+          const tween = buildMarquee(track, 1.8);
+          if (tween) metricTweens.push(tween);
+        });
+      }, 160);
+    });
+  }
+
   // Show more for Key Dignitaries
   const speakerGroups = document.querySelectorAll('.speakerGroup');
   if (speakerGroups.length > 1) {
