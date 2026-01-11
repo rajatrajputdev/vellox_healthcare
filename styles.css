@@ -664,9 +664,94 @@ img {
       background: #e6e9ed;
     }
 
-    .panel2--awards {
-      background: #f5f9fa;
-    }
+.panel2--awards {
+  background: #f5f9fa;
+}
+
+.panel2--awardsHero {
+  background: #0b0f10;
+  padding-top: 96px;
+  padding-bottom: 72px;
+}
+
+.awardsHero__cta,
+.awardsCTA {
+  margin-top: 12px;
+  display   : flex;
+  flex-wrap : wrap;
+  gap       : 12px;
+  justify-content: center;
+}
+
+.awardsHero__link {
+  color          : #cfe3f1;
+  text-decoration: none;
+  font-weight    : 700;
+  letter-spacing : .2px;
+}
+
+.awardsHero__link:hover {
+  color: #ffffff;
+}
+
+.awardsGrid--full {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.awardsSteps {
+  display              : grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap                  : 14px;
+}
+
+.awardsStep {
+  background   : #ffffff;
+  border-radius: 16px;
+  padding      : 16px;
+  box-shadow   : 0 12px 20px rgba(0, 0, 0, 0.1);
+  border       : 1px solid #dbe6ea;
+  display      : grid;
+  gap          : 8px;
+}
+
+.awardsStep__num {
+  font-weight   : 900;
+  font-size     : 20px;
+  letter-spacing: .6px;
+  color         : #1d4c55;
+}
+
+.awardsStep__text {
+  margin     : 0;
+  color      : #2f525b;
+  font-weight: 600;
+  font-size  : 14px;
+}
+
+.panel2--awardsHero .sectionTitle h2,
+.panel2--awardsHero .panel2__copy {
+  color: #f6fbfb;
+}
+
+.panel2--awardsHero .sectionRule {
+  background: linear-gradient(90deg, rgba(246, 251, 251, 0), rgba(246, 251, 251, 0.75), rgba(246, 251, 251, 0));
+}
+
+.awardsCTA__wrap {
+  text-align: center;
+}
+
+.awardsCTA__wrap .sectionTitle {
+  margin-bottom: 8px;
+}
+
+.awardsCTA__wrap .panel2__copy {
+  margin-bottom: 14px;
+}
+
+.awardsCTA__wrap .awardsCTA {
+  margin-top: 6px;
+}
 
     .panel2--contact {
       background: #f0f6f7;
@@ -733,11 +818,11 @@ img {
 }
 
 #about .sectionTitle {
-  text-align: left;
+  text-align: center;
 }
 
 #about .sectionRule {
-  margin: 8px 0 0;
+  margin: 8px auto 0;
 }
 
     .panel2__copy {
@@ -1045,6 +1130,7 @@ img {
       border-radius : 12px;
       padding       : 10px 12px;
       box-shadow    : 0 8px 14px rgba(0, 0, 0, .08);
+      text-align    : center;
     }
 
     .speakerGrid {
@@ -1582,6 +1668,10 @@ img {
   color        : #0f2f20;
   box-shadow   : 0 10px 18px rgba(0, 0, 0, 0.08);
   letter-spacing: .1px;
+  text-align   : center;
+  display      : flex;
+  align-items  : center;
+  justify-content: center;
 }
 
 .awardsGrid {
@@ -1742,42 +1832,100 @@ img {
    ========================= */
 .footer2 {
   background: var(--deep);
-      color     : #e9f4ff;
-      padding   : 30px 0 44px;
-    }
+  color     : #e9f4ff;
+  padding   : 40px 0 48px;
+}
 
-    .footer2__inner {
-      display      : grid;
-      gap          : 10px;
-      justify-items: center;
-      text-align   : center;
-    }
+.footer2__inner {
+  display : grid;
+  gap     : 24px;
+}
 
-    .footer2__brand {
-      font-family   : "Helvetica", sans-serif;
-      font-weight   : bold;
-      font-size     : 28px;
-      letter-spacing: 1px;
-    }
+.footer2__brandBlock {
+  display: grid;
+  gap    : 6px;
+}
 
-    .footer2__meta {
-      display        : flex;
-      flex-wrap      : wrap;
-      justify-content: center;
-      gap            : 10px;
-      font-weight    : 600;
-      letter-spacing : .2px;
-      color          : #d7e8ff;
-    }
+.footer2__brand {
+  font-family   : "Helvetica", sans-serif;
+  font-weight   : 900;
+  font-size     : 30px;
+  letter-spacing: 1.2px;
+}
 
-    .footer2__meta .sep {
-      opacity: .7;
-    }
+.footer2__tagline {
+  margin     : 0;
+  color      : #cfe3f1;
+  font-weight: 600;
+  letter-spacing: .2px;
+}
 
-    .footer2__fine {
-      font-size: 13px;
-      color    : #c7d8ea;
-    }
+.footer2__columns {
+  display              : grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap                  : 18px;
+  border-top           : 1px solid rgba(255, 255, 255, 0.12);
+  padding-top          : 20px;
+}
+
+.footer2__col {
+  display: grid;
+  gap    : 8px;
+  color  : #d7e8ff;
+}
+
+.footer2__title {
+  font-weight   : 800;
+  text-transform: uppercase;
+  letter-spacing: .4px;
+  color         : #f4fbff;
+  font-size     : 12px;
+}
+
+.footer2__col a {
+  color          : #d7e8ff;
+  text-decoration: none;
+  font-weight    : 600;
+  letter-spacing : .2px;
+}
+
+.footer2__col a:hover {
+  color: #ffffff;
+}
+
+.footer2__col--cta p {
+  margin: 0;
+  font-weight: 600;
+  color: #cfe3f1;
+}
+
+.footer2__cta {
+  margin-top   : 6px;
+  display      : inline-flex;
+  align-items  : center;
+  justify-content: center;
+  padding      : 9px 14px;
+  border-radius: 14px;
+  background   : linear-gradient(135deg, #4e8f99, #2e6a76);
+  color        : #f8fbfb;
+  font-weight  : 800;
+  text-decoration: none;
+  letter-spacing: .2px;
+  width        : max-content;
+  box-shadow   : 0 10px 18px rgba(0, 0, 0, .12);
+  border       : 1px solid rgba(255, 255, 255, .35);
+}
+
+.footer2__cta:hover {
+  background: linear-gradient(135deg, #3c7a84, #1e5662);
+}
+
+.footer2__fine {
+  font-size : 12px;
+  color     : #c7d8ea;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 16px;
+}
 
     /* =========================
    Floating scroll-to-top FAB
@@ -1899,6 +2047,10 @@ img {
 
       .aboutGallery {
         grid-template-columns: repeat(2, minmax(160px, 1fr));
+      }
+
+      .footer2__columns {
+        grid-template-columns: 1fr;
       }
 
     }
