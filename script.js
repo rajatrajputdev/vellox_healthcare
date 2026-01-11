@@ -294,4 +294,31 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   }
+
+  // Randomize focus tile widths (small + occasional wide)
+  const focusGrid = document.querySelector("[data-focus-grid]");
+  if (focusGrid) {
+    const tiles = Array.from(focusGrid.querySelectorAll(".focusTile"));
+    const makeRandomLayout = () => {
+      tiles.forEach((tile) => tile.classList.remove("is-wide"));
+      const cols = window.innerWidth < 960 ? 2 : 4;
+      const maxWide = cols === 2 ? 2 : 3;
+      const wideCount = Math.min(maxWide, Math.max(1, Math.floor(tiles.length * 0.3)));
+      const picked = new Set();
+      while (picked.size < wideCount) {
+        picked.add(Math.floor(Math.random() * tiles.length));
+      }
+      picked.forEach((idx) => tiles[idx].classList.add("is-wide"));
+    };
+    makeRandomLayout();
+    window.addEventListener("resize", makeRandomLayout);
+  }
+
+  // Stack "Why Attend" cards with proper z-order
+  const whyCards = document.querySelectorAll(".whyGrid .whyCard");
+  if (whyCards.length) {
+    whyCards.forEach((card, index) => {
+      card.style.zIndex = String(index + 1);
+    });
+  }
 });
