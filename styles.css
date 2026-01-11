@@ -2156,6 +2156,14 @@ img {
         grid-template-columns: repeat(2, minmax(140px, 1fr));
       }
 
+      .attendeeGrid {
+        grid-template-columns: 1fr;
+      }
+
+      .attendeeGrid > .attendeeCard:last-child {
+        grid-column: auto;
+      }
+
 
     }
 
