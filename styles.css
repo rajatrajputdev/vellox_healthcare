@@ -2066,16 +2066,27 @@ img {
       }
 
       .hero2__inner {
-        padding   : 28px 0 24px;
-        margin-top: clamp(200px, 50vw, 280px);
+        padding   : 20px 0 56px;
+        margin-top: clamp(140px, 32vw, 200px);
       }
 
       .hero2__title {
         font-size: 30px;
       }
 
+      .hero2__headline {
+        padding: 0 20px;
+      }
+
       .hero2__headline h1 {
-        font-size: clamp(44px, 12vw, 64px);
+        font-size: clamp(36px, 11vw, 56px);
+        text-align: center;
+      }
+
+      .heroH1__line1,
+      .heroH1__line2 {
+        margin-left: 0;
+        white-space: normal;
       }
 
       .refGrid {
