@@ -906,7 +906,8 @@ img {
   grid-template-areas  :
     "hero hero a tall"
     "hero hero b tall"
-    "c c d e";
+    "c c d e"
+    "f f g g";
 }
 
 .card {
@@ -939,6 +940,16 @@ img {
   margin-bottom: 8px;
   font-size    : clamp(18px, 1.6vw, 22px);
   color        : #ffffff;
+}
+
+.card:not(.hero) .content h3 {
+  font-size: clamp(16px, 1.4vw, 20px);
+}
+
+.content__titleSm {
+  font-size  : clamp(12px, 1vw, 16px);
+  line-height: 1.2;
+  display    : inline-block;
 }
 
 .content p {
@@ -977,6 +988,16 @@ img {
   grid-area: e;
 }
 
+.f {
+  grid-area: f;
+  min-height: 220px;
+}
+
+.g {
+  grid-area: g;
+  min-height: 220px;
+}
+
 @media (max-width: 900px) {
   .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -985,7 +1006,8 @@ img {
       "tall tall"
       "a b"
       "c c"
-      "d e";
+      "d e"
+      "f g";
   }
 }
 
@@ -999,7 +1021,9 @@ img {
       "tall"
       "c"
       "d"
-      "e";
+      "e"
+      "f"
+      "g";
   }
 }
 
