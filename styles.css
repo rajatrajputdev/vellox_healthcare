@@ -290,7 +290,7 @@ img {
 }
 
 .panel2--metrics .sectionTitle h2 {
-  color: #f6fbfb;
+  color: #f6fbfb !important;
 }
 
 .panel2--metrics .sectionRule {
@@ -701,11 +701,28 @@ img {
 }
 
 .panel2--awardsHero {
-  background    : #0b0f10;
-  padding-top   : 96px;
-  padding-bottom: 72px;
+  position: relative;
+  background: url("./awardsbg.webp") top / cover no-repeat;
+  padding-top: 206px;
+  padding-bottom: 172px;
+  overflow: hidden;
 }
 
+/* Dark overlay */
+.panel2--awardsHero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);   /* darkness level */
+  mix-blend-mode: multiply;         /* gives cinematic darkening */
+  z-index: 1;
+}
+
+/* Keep your content above the overlay */
+.panel2--awardsHero > * {
+  position: relative;
+  z-index: 2;
+}
 .awardsHero__cta,
 .awardsCTA {
   margin-top     : 12px;
@@ -815,7 +832,7 @@ img {
 }
 
 .sectionText p {
-  text-align : justify;
+  text-align : center;
   line-height: 1.7;
   color      : rgba(255, 255, 255, 0.9);
 }
@@ -866,7 +883,7 @@ img {
 }
 
 .panel2__copy {
-  text-align    : justify;
+  text-align    : center;
   color         : rgba(255, 255, 255, .92);
   font-size     : 16px;
   letter-spacing: .15px;
@@ -924,8 +941,14 @@ img {
   background-position: center;
   color              : #ffffff;
   min-height         : 170px;
+  transition:  all .4s ease-in-out;
 }
 
+
+.card:hover{
+  transform : translateY(-6px);
+  box-shadow: 0 22px 32px rgba(0, 0, 0, .14);
+}
 .card::before {
   content : "";
   position: absolute;
@@ -1019,17 +1042,17 @@ img {
 
 @media (max-width: 600px) {
   .grid {
-    grid-template-columns: 1fr;
-    grid-template-areas  :
-      "hero"
-      "a"
-      "b"
-      "tall"
-      "c"
-      "d"
-      "e"
-      "f"
-      "g";
+    display: grid;
+    grid-template-columns: 1fr;      /* single column */
+    grid-auto-rows: 1fr;             /* every row equal height */
+    grid-template-areas: none;       /* disable desktop layout */
+    gap: 12px;
+  }
+
+  /* Kill all spanning */
+  .grid > * {
+    grid-column: auto !important;
+    grid-row: auto !important;
   }
 }
 
@@ -1820,13 +1843,13 @@ img {
 
 .section .sqInPill {
   width              : 100%;
-  height             : 154px;
+  height             : 174px;
   border-radius      : 24px;
   background         : #2e6a76;
   flex               : 0 0 auto;
   box-shadow         : 0 10px 20px rgba(46, 106, 118, .25);
   background-size    : cover;
-  background-position: center;
+  background-position: top;
   background-repeat  : no-repeat;
   filter             : grayscale(100%);
 }
