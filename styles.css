@@ -598,7 +598,7 @@ img {
   color         : rgba(255, 255, 255, .92);
   font-weight   : 300;
   letter-spacing: .2px;
-  margin-top    : 10px;
+  margin    : 10px;
   font-size     : 27px;
 }
 
