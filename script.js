@@ -321,7 +321,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const refGrid = keyDignitariesGroup.querySelector(".refGrid");
     if (refGrid) {
       const cards = refGrid.querySelectorAll(".refposter");
-      const showCount = 6;
+      const showCount = 8;
       cards.forEach((card, index) => {
         if (index >= showCount) {
           card.classList.add("hidden");
