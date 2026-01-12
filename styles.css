@@ -1637,16 +1637,16 @@ img {
 }
 
 .section{
-  max-width: 1100px;
+  max-width: 1180px;
   margin: 24px auto;
-  padding: 18px;
+  padding: 22px;
   background: #eef2f4;
   border-radius: 22px;
 }
 
 .section .stats{
   display: grid;
-  gap: 18px;
+  gap: 20px;
   grid-template-columns: 2.35fr 1.05fr 1.05fr 1.55fr;
   grid-template-rows: 1fr 1fr;
   align-items: stretch;
@@ -1665,7 +1665,7 @@ img {
   overflow:hidden;
   display:flex;
   align-items:center;
-  min-height: 98px;
+  min-height: 112px;
 }
 .section .pill__pad{padding: 16px 18px;}
 .section .pill__kpi{margin:0;font-weight:800;font-size:13px;line-height:1.15;color:#111111;}
@@ -1689,7 +1689,7 @@ img {
   background: #2e6a76;
   border-radius: 28px;
   box-shadow: 0 14px 26px rgba(46,106,118,.24);
-  min-height: 98px;
+  min-height: 112px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1719,6 +1719,10 @@ img {
 .section .block--botSq .block__text{order:-1;}
 
 .section .pill--sq{gap: 14px;}
+.section .pill--sq .pill__pad{
+  display: flex;
+  flex-direction: column;
+}
 .section .sqInPill{
   width: 74px;
   height: 74px;
