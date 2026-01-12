@@ -139,18 +139,34 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-    window.gsap.utils.toArray(".speakerCard, .focusItem, .insightCard, .whyCard, .attendeeCard, .partnerCard, .awardColumn").forEach((el) => {
+    window.gsap.utils.toArray(".refposter").forEach((el) => {
       window.gsap.from(el, {
         opacity: 0,
         y: 20,
         duration: 0.9,
         ease: "power2.out",
+        clearProps: "transform",
         scrollTrigger: {
           trigger: el,
           start: "top 88%"
         }
       });
     });
+
+    window.gsap.utils
+      .toArray(".focusItem, .insightCard, .whyCard, .attendeeCard, .partnerCard, .awardColumn")
+      .forEach((el) => {
+        window.gsap.from(el, {
+          opacity: 0,
+          y: 20,
+          duration: 0.9,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: el,
+            start: "top 88%"
+          }
+        });
+      });
   } else if (!("IntersectionObserver" in window) || revealEls.length === 0) {
     revealEls.forEach((el) => el.classList.add("is-in"));
   } else {
@@ -271,30 +287,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Show more for Key Dignitaries
-  const speakerGroups = document.querySelectorAll('.speakerGroup');
-  if (speakerGroups.length > 1) {
-    const keyDignitariesGroup = speakerGroups[1];
-    const speakerGrid = keyDignitariesGroup.querySelector('.speakerGrid');
-    if (speakerGrid) {
-      const cards = speakerGrid.querySelectorAll('.speakerCard');
-      const showCount = 8; // Show first 8 cards (2 rows assuming 4 per row)
-      cards.forEach((card, index) => {
-        if (index >= showCount) {
-          card.classList.add('hidden');
-        }
-      });
-      const showMoreBtn = keyDignitariesGroup.querySelector('.showMoreBtn');
-      if (showMoreBtn) {
-        showMoreBtn.addEventListener('click', () => {
-          const hiddenCards = speakerGrid.querySelectorAll('.speakerCard.hidden');
-          hiddenCards.forEach(card => card.classList.remove('hidden'));
-          showMoreBtn.style.display = 'none';
-        });
-      }
-    }
-  }
-
   // Randomize focus tile widths (small + occasional wide)
   const focusGrid = document.querySelector("[data-focus-grid]");
   if (focusGrid) {
@@ -320,5 +312,29 @@ document.addEventListener("DOMContentLoaded", () => {
     whyCards.forEach((card, index) => {
       card.style.zIndex = String(index + 1);
     });
+  }
+
+  // Show more for Key Dignitaries (refposter cards)
+  const speakerGroups = document.querySelectorAll(".speakerGroup");
+  if (speakerGroups.length > 1) {
+    const keyDignitariesGroup = speakerGroups[1];
+    const refGrid = keyDignitariesGroup.querySelector(".refGrid");
+    if (refGrid) {
+      const cards = refGrid.querySelectorAll(".refposter");
+      const showCount = 6;
+      cards.forEach((card, index) => {
+        if (index >= showCount) {
+          card.classList.add("hidden");
+        }
+      });
+      const showMoreBtn = keyDignitariesGroup.querySelector(".showMoreBtn");
+      if (showMoreBtn) {
+        showMoreBtn.addEventListener("click", () => {
+          const hiddenCards = refGrid.querySelectorAll(".refposter.hidden");
+          hiddenCards.forEach((card) => card.classList.remove("hidden"));
+          showMoreBtn.style.display = "none";
+        });
+      }
+    }
   }
 });

@@ -1347,20 +1347,28 @@ img {
   transition      : transform .35s var(--ease);
 }
 
-.refposter:hover {
-  transform: translateY(-6px) rotate(0deg);
+.refposter--a {
+  transform: rotate(0deg);
 }
 
-.refposter--a {
-  transform: rotate(-1.6deg);
+.refposter--a:hover {
+  transform: translateY(-6px) rotate(-1.6deg);
 }
 
 .refposter--b {
-  transform: rotate(1deg);
+  transform: rotate(0deg);
+}
+
+.refposter--b:hover {
+  transform: translateY(-6px) rotate(1deg);
 }
 
 .refposter--c {
-  transform: rotate(-.8deg);
+  transform: rotate(0deg);
+}
+
+.refposter--c:hover {
+  transform: translateY(-6px) rotate(-.8deg);
 }
 
 .refposter__meta {
@@ -1799,7 +1807,7 @@ img {
 .attendeeCard {
   background     : #f9fbfc;
   border-radius  : 14px;
-  padding        : 14px;
+  padding        : 18px;
   font-weight    : 700;
   color          : #0f2f20;
   box-shadow     : 0 10px 18px rgba(0, 0, 0, 0.08);
@@ -1808,6 +1816,22 @@ img {
   display        : flex;
   align-items    : center;
   justify-content: center;
+  transition     : transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.attendeeCard:hover {
+  transform   : translateY(-4px);
+  box-shadow  : 0 18px 30px rgba(0, 0, 0, 0.16);
+  border-color: #c2d9df;
+}
+@media (max-width: 1024px) {
+  .attendeeGrid {
+    grid-template-columns: repeat(2, minmax(240px, 1fr));
+  }
+
+  .attendeeGrid>.attendeeCard:last-child {
+    grid-column: auto;
+  }
 }
 
 .awardsGrid {
@@ -1858,8 +1882,14 @@ img {
   padding      : 14px;
   box-shadow   : 0 12px 22px rgba(0, 0, 0, .12);
   border       : 1px solid #d8e5e9;
+  transition   : transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
+.contactCard:hover {
+  transform   : translateY(-4px);
+  box-shadow  : 0 18px 30px rgba(0, 0, 0, 0.16);
+  border-color: #c2d9df;
+}
 .contactName {
   font-weight   : 800;
   color         : #0f2f20;
@@ -2323,19 +2353,22 @@ img {
 
 .showMoreBtn {
   display      : block;
-  margin       : 20px auto;
+  margin       : 20px auto 0;
   padding      : 10px 20px;
-  background   : #28a745;
-  color        : white;
+  background   : #2b6f7a;
+  color        : #ffffff;
   border       : none;
-  border-radius: 5px;
+  border-radius: 999px;
   cursor       : pointer;
-  font-size    : 16px;
-  transition   : background 0.3s;
+  font-size    : 14px;
+  font-weight  : 700;
+  letter-spacing: .3px;
+  transition   : transform 0.2s ease, background 0.2s ease;
 }
 
 .showMoreBtn:hover {
-  background: #218838;
+  background: #245c65;
+  transform : translateY(-1px);
 }
 
 /* Centered section titles */
