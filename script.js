@@ -337,4 +337,53 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   }
+
+  // Stats section tilt + ripple interactions
+  const statsSection = document.querySelector(".section");
+  if (statsSection) {
+    statsSection
+      .querySelectorAll('.reveal.is-in[style*="display:none"]')
+      .forEach((node) => node.remove());
+
+    const canTilt =
+      window.matchMedia("(prefers-reduced-motion: no-preference)").matches &&
+      window.matchMedia("(hover: hover)").matches &&
+      window.matchMedia("(pointer: fine)").matches;
+
+    if (canTilt) {
+      const cards = Array.from(statsSection.querySelectorAll(".pill, .block"));
+      cards.forEach((card) => {
+        card.addEventListener("mousemove", (ev) => {
+          const rect = card.getBoundingClientRect();
+          const x = (ev.clientX - rect.left) / rect.width - 0.5;
+          const y = (ev.clientY - rect.top) / rect.height - 0.5;
+          const rx = (-y * 4).toFixed(2);
+          const ry = (x * 5).toFixed(2);
+          card.style.transform = `translateY(-2px) perspective(700px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+        });
+        card.addEventListener("mouseleave", () => {
+          card.style.transform = "";
+        });
+      });
+    }
+
+    const canRipple = window.matchMedia("(prefers-reduced-motion: no-preference)").matches;
+    if (canRipple) {
+      statsSection.addEventListener(
+        "pointerdown",
+        (ev) => {
+          const card = ev.target.closest(".pill, .block");
+          if (!card) return;
+          const rect = card.getBoundingClientRect();
+          const dot = document.createElement("span");
+          dot.className = "ripple";
+          dot.style.left = `${ev.clientX - rect.left}px`;
+          dot.style.top = `${ev.clientY - rect.top}px`;
+          card.appendChild(dot);
+          dot.addEventListener("animationend", () => dot.remove());
+        },
+        { passive: true }
+      );
+    }
+  }
 });
