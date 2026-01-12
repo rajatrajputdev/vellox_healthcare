@@ -171,7 +171,7 @@ img {
 }
 
 .pill:hover {
-  background: linear-gradient(135deg, #3c7a84, #1e5662);
+  background: linear-gradient(135deg, #3c7a84, #1e5662) !important;
 }
 
 .nav-toggle {
