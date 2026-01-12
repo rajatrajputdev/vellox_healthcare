@@ -510,6 +510,7 @@ img {
   color         : rgba(255, 255, 255, .92);
   font-size     : clamp(16px, 1.6vw, 20px);
   text-align    : center;
+  margin: 0 10px;
 }
 
 .hero2__meta {
