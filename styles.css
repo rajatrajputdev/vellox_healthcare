@@ -382,6 +382,7 @@ img {
 /* LOGO  */
 /* LOGO WRAPPER */
 .hero2__brand {
+  margin-top: 200px;
   display        : flex;
   justify-content: center;
 }
@@ -443,6 +444,11 @@ img {
     gap: 10px;
   }
 
+  .hero2__brand {
+  margin-top: 100px;
+  display        : flex;
+  justify-content: center;
+}
   .hero2__brandImg {
     max-width: 92vw;
     /* near full width */
@@ -535,7 +541,7 @@ img {
   text-transform: uppercase;
   color         : #fff;
 
-  font-size     : clamp(38px, 6.5vw, 96px);
+  font-size     : clamp(28px, 6vw, 75px);
   line-height   : 0.92;
   letter-spacing: 0.6px;
 }
@@ -567,7 +573,11 @@ img {
     margin-left: clamp(4rem, 6vw, 10rem);
   }
 }
-
+@media (max-width: 1024px) {
+  .attendeeGrid {
+    grid-template-columns: repeat(2, minmax(240px, 1fr));
+  }
+}
 @media (max-width: 900px) {
 
   .heroH1__line1,
@@ -882,34 +892,114 @@ img {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, .65), 0 22px 32px rgba(0, 0, 0, .14);
 }
 
-.focusGrid {
-  width                : 100%;
+.wrap {
+  max-width: 1100px;
+  margin   : auto;
+  padding  : 20px;
+}
+
+.grid {
   display              : grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  grid-auto-rows       : 120px;
-  gap                  : 14px;
-  grid-auto-flow       : dense;
+  gap                  : 18px;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-areas  :
+    "hero hero a tall"
+    "hero hero b tall"
+    "c c d e";
 }
 
-.focusTile {
-  background   : #0b0f10;
-  border-radius: 18px;
-  box-shadow   : 0 12px 22px rgba(0, 0, 0, 0.18);
-  border       : 1px solid rgba(255, 255, 255, 0.06);
-  overflow     : hidden;
-  display      : block;
+.card {
+  border-radius     : 24px;
+  overflow          : hidden;
+  position          : relative;
+  background-size   : cover;
+  background-position: center;
+  color             : #ffffff;
+  min-height        : 170px;
 }
 
-.focusTile.is-wide {
-  grid-column: span 2;
+.card::before {
+  content  : "";
+  position : absolute;
+  inset    : 0;
+  background:
+    linear-gradient(180deg, rgba(5, 8, 10, 0.05) 0%, rgba(5, 8, 10, 0.65) 70%, rgba(5, 8, 10, 0.88) 100%),
+    radial-gradient(circle at 20% 80%, rgba(68, 192, 181, 0.45) 0%, rgba(68, 192, 181, 0.0) 55%);
 }
 
-.focusTile--image img {
-  width     : 100%;
-  height    : 100%;
-  object-fit: cover;
-  display   : block;
-  filter    : grayscale(0.2) contrast(1.05);
+.content {
+  position: absolute;
+  bottom  : 20px;
+  left    : 20px;
+  right   : 20px;
+}
+
+.content h3 {
+  margin-bottom: 8px;
+  font-size    : clamp(18px, 1.6vw, 22px);
+  color        : #ffffff;
+}
+
+.content p {
+  color      : rgba(255, 255, 255, 0.86);
+  font-size  : 13px;
+  line-height: 1.4;
+}
+
+.hero {
+  grid-area: hero;
+  min-height: 320px;
+}
+
+.a {
+  grid-area: a;
+}
+
+.b {
+  grid-area: b;
+}
+
+.tall {
+  grid-area: tall;
+  min-height: 320px;
+}
+
+.c {
+  grid-area: c;
+}
+
+.d {
+  grid-area: d;
+}
+
+.e {
+  grid-area: e;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas  :
+      "hero hero"
+      "tall tall"
+      "a b"
+      "c c"
+      "d e";
+  }
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-areas  :
+      "hero"
+      "a"
+      "b"
+      "tall"
+      "c"
+      "d"
+      "e";
+  }
 }
 
 /* Partners row */
@@ -1697,7 +1787,6 @@ img {
   grid-template-columns: repeat(3, minmax(240px, 1fr));
   gap                  : 14px;
   margin-top           : 10px;
-  max-width            : 980px;
   margin-left          : auto;
   margin-right         : auto;
   justify-items        : center;
@@ -2079,17 +2168,6 @@ img {
   .hstat {
     width : clamp(160px, 32vw, 200px);
     height: 96px;
-  }
-
-  .focusGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-auto-rows       : 130px;
-  }
-
-  .focusTile:nth-child(2),
-  .focusTile:nth-child(5),
-  .focusTile:nth-child(8) {
-    grid-column: span 2;
   }
 
   .aboutGallery {
