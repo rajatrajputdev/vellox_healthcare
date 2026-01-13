@@ -1521,7 +1521,10 @@ img {
 
 .refposter {
   transform-origin: center bottom;
-  transition      : transform .35s var(--ease);
+  transition      : transform .35s var(--ease), box-shadow .35s var(--ease), filter .35s var(--ease);
+  will-change     : transform;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .refposter--a {
@@ -1529,7 +1532,9 @@ img {
 }
 
 .refposter--a:hover {
-  transform: translateY(-6px) rotate(-1.6deg);
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 22px 36px rgba(13, 83, 99, 0.22);
+  filter    : saturate(1.08);
 }
 
 .refposter--b {
@@ -1537,7 +1542,9 @@ img {
 }
 
 .refposter--b:hover {
-  transform: translateY(-6px) rotate(1deg);
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 22px 36px rgba(13, 83, 99, 0.22);
+  filter    : saturate(1.08);
 }
 
 .refposter--c {
@@ -1545,7 +1552,9 @@ img {
 }
 
 .refposter--c:hover {
-  transform: translateY(-6px) rotate(-.8deg);
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 22px 36px rgba(13, 83, 99, 0.22);
+  filter    : saturate(1.08);
 }
 
 .refposter__meta {
@@ -1581,6 +1590,36 @@ img {
   background: #ffffff;
   clip-path : polygon(0 55%, 100% 0, 100% 100%, 0 100%);
   z-index   : 4;
+}
+
+.refposter__linkedin {
+  position     : absolute;
+  right        : 14px;
+  bottom       : 12px;
+  width        : 32px;
+  height       : 32px;
+  border-radius: 999px;
+  display      : flex;
+  align-items  : center;
+  justify-content: center;
+  color        : #0d5363;
+  background   : rgba(255, 255, 255, 0.92);
+  border       : 1px solid rgba(13, 83, 99, 0.18);
+  box-shadow   : 0 8px 14px rgba(0, 0, 0, 0.12);
+  z-index      : 6;
+  transition   : transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
+}
+
+.refposter__linkedin i {
+  font-size  : 14px;
+  line-height: 1;
+}
+
+.refposter__linkedin:hover {
+  transform  : translateY(-3px);
+  background : linear-gradient(120deg, #0d5363, #1f7f7f);
+  color      : #ffffff;
+  box-shadow : 0 12px 20px rgba(13, 83, 99, 0.28);
 }
 
 .refposter__topic {
@@ -1642,7 +1681,7 @@ img {
   font-weight   : 900;
   text-transform: uppercase;
   letter-spacing: .6px;
-  font-size     : 22px;
+  font-size     : 16px;
   color         : #0f2f20;
 }
 
@@ -2897,6 +2936,23 @@ text-align: center;
 
   .refGrid {
     grid-template-columns: 1fr;
+  }
+
+  .refposter {
+    padding: 8px;
+  }
+
+  .refposter__sheet {
+    border-radius: 12px;
+  }
+
+  .refposter__bottom {
+    padding: 0 6px;
+  }
+
+  .refposter__linkedin {
+    right : 18px;
+    bottom: 16px;
   }
 
   .whyGrid {
