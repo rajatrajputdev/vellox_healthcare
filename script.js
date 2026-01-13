@@ -386,4 +386,51 @@ document.addEventListener("DOMContentLoaded", () => {
       );
     }
   }
+
+  // -------------------------
+  // Gallery lightbox (2025 Glimpses)
+  // -------------------------
+  const galleryImages = document.querySelectorAll(".glimpsesCard img");
+  if (galleryImages.length) {
+    const lightbox = document.createElement("div");
+    lightbox.className = "lightbox";
+    lightbox.setAttribute("role", "dialog");
+    lightbox.setAttribute("aria-modal", "true");
+
+    const closeBtn = document.createElement("button");
+    closeBtn.className = "lightbox__close";
+    closeBtn.type = "button";
+    closeBtn.setAttribute("aria-label", "Close");
+    closeBtn.textContent = "×";
+
+    const lightboxImg = document.createElement("img");
+    lightboxImg.className = "lightbox__img";
+    lightbox.appendChild(closeBtn);
+    lightbox.appendChild(lightboxImg);
+    document.body.appendChild(lightbox);
+
+    const closeLightbox = () => {
+      lightbox.classList.remove("is-open");
+      document.body.style.overflow = "";
+    };
+
+    galleryImages.forEach((img) => {
+      img.addEventListener("click", () => {
+        lightboxImg.src = img.currentSrc || img.src;
+        lightboxImg.alt = img.alt || "Gallery image";
+        lightbox.classList.add("is-open");
+        document.body.style.overflow = "hidden";
+      });
+    });
+
+    closeBtn.addEventListener("click", closeLightbox);
+
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeLightbox();
+    });
+  }
 });
