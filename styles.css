@@ -2749,6 +2749,10 @@ font-size: 14px;
 font-size: 12px;
 text-align: center;
    }
+     .refGrid {
+    grid-template-columns: repeat(3, minmax(240px, 1fr));
+  }
+
 }
 @media (max-width: 960px) {
   .nav-inner {
